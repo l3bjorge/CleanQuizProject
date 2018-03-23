@@ -97,16 +97,21 @@ public class QuestionPresenter extends GenericPresenter
 
   @Override
   public void onFalseBtnClicked() {
+    answerBtnClicked = true;
+    setButtonColors();
     onAnswerBtnClicked(false);
   }
 
   @Override
   public void onNextBtnClicked(){
+    answerBtnClicked = false;
     loadNextQuestion();
   }
 
   @Override
   public void onTrueBtnClicked() {
+    answerBtnClicked = true;
+    setButtonColors();
     onAnswerBtnClicked(true);
   }
 
@@ -172,6 +177,7 @@ public class QuestionPresenter extends GenericPresenter
   private void settingInitialState(){
     Log.d(TAG, "calling settingInitialState()");
     setButtonLabels();
+    setButtonColors();
     checkVisibility();
     getView().setQuestion(getModel().getCurrentQuestionLabel());
   }
@@ -224,6 +230,15 @@ public class QuestionPresenter extends GenericPresenter
       getView().setFalseButton(getModel().getFalseLabel());
       getView().setCheatButton(getModel().getCheatLabel());
       getView().setNextButton(getModel().getNextLabel());
+    }
+  }
+
+  private void setButtonColors(){
+    if(isViewRunning()) {
+      getView().setTrueButtonClickability(answerBtnClicked);
+      getView().setFalseButtonClickability(answerBtnClicked);
+      getView().setCheatButtonClickability(answerBtnClicked);
+      getView().setNextButtonClickability(answerBtnClicked);
     }
   }
 

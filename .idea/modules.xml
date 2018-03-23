@@ -3,10 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CleanMvpLib/CleanMvpLib.iml" filepath="$PROJECT_DIR$/CleanMvpLib/CleanMvpLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CleanMvpLib/CleanMvpLib.iml" filepath="$PROJECT_DIR$/CleanMvpLib/CleanMvpLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CleanQuizProject.iml" filepath="$PROJECT_DIR$/CleanQuizProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CleanQuizProject.iml" filepath="$PROJECT_DIR$/CleanQuizProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/QuizApp/QuizApp.iml" filepath="$PROJECT_DIR$/QuizApp/QuizApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CleanQuizProject.iml" filepath="$PROJECT_DIR$/.idea/CleanQuizProject.iml" />
+      <module fileurl="file://C:\Users\Jorge\Desktop\Work\AppDesign\CleanQuizProject\CleanQuizProject.iml" filepath="C:\Users\Jorge\Desktop\Work\AppDesign\CleanQuizProject\CleanQuizProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuizApp/QuizApp.iml" filepath="$PROJECT_DIR$/QuizApp/QuizApp.iml" />
     </modules>
   </component>

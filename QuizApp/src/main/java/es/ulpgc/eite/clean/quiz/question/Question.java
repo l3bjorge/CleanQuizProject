@@ -54,6 +54,10 @@ public interface Question {
     void setQuestion(String text);
     void setTrueButton(String label);
     void showAnswer();
+    void setCheatButtonClickability(boolean answerBtnClicked);
+    void setFalseButtonClickability(boolean answerBtnClicked);
+    void setNextButtonClickability(boolean answerBtnClicked);
+    void setTrueButtonClickability(boolean answerBtnClicked);
   }
 
   /**

@@ -1,6 +1,7 @@
 package es.ulpgc.eite.clean.quiz.question;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -132,5 +133,37 @@ public class QuestionView
   public void showAnswer() {
     labelAnswer.setVisibility(View.VISIBLE);
   }
+
+  @Override
+  public void setCheatButtonClickability(boolean answerBtnClicked) {
+    if(answerBtnClicked){
+      buttonCheat.setBackgroundColor(Color.RED);
+    } else
+      buttonCheat.setBackgroundColor(Color.GREEN);
+  }
+
+  @Override
+  public void setFalseButtonClickability(boolean answerBtnClicked) {
+    if(answerBtnClicked){
+      buttonFalse.setBackgroundColor(Color.RED);
+    }else
+      buttonFalse.setBackgroundColor(Color.GREEN);
+  }
+
+  @Override
+  public void setNextButtonClickability(boolean answerBtnClicked) {
+    if(answerBtnClicked){
+      buttonNext.setBackgroundColor(Color.GREEN);
+    }else
+      buttonNext.setBackgroundColor(Color.RED);
+  }
+  @Override
+  public void setTrueButtonClickability(boolean answerBtnClicked) {
+    if(answerBtnClicked){
+      buttonTrue.setBackgroundColor(Color.RED);
+    }else
+      buttonTrue.setBackgroundColor(Color.GREEN);
+  }
+
 
 }
