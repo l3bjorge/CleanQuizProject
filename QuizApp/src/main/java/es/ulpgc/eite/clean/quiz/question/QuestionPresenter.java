@@ -106,6 +106,7 @@ public class QuestionPresenter extends GenericPresenter
   @Override
   public void onNextBtnClicked(){
     answerBtnClicked = false;
+    setButtonColors();
     loadNextQuestion();
   }
 
@@ -186,6 +187,7 @@ public class QuestionPresenter extends GenericPresenter
     if(cheated){
       answerBtnClicked = true;
     }
+    answerVisible = false;
     setButtonLabels();
     checkVisibility();
     setButtonColors();

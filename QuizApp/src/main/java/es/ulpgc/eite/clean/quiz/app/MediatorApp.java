@@ -88,7 +88,6 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
     if(cheatToQuestionState != null) {
       Log.d(TAG, "calling resumingQuestionScreen()");
       Log.d(TAG, "calling settingUpdatedQuestionState()");
-      presenter.setAnswerBtnClicked(cheatToQuestionState.answerBtnClicked);
       presenter.setCheated(cheatToQuestionState.cheated);
 
       Log.d(TAG, "calling removingUpdatedQuestionState()");
@@ -132,7 +131,6 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   private class QuestionState {
     boolean toolbarVisible;
-    boolean answerBtnClicked;
     boolean cheated;
   }
 

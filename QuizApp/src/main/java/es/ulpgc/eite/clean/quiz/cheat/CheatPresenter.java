@@ -16,7 +16,6 @@ public class CheatPresenter extends GenericPresenter
 
 
   private boolean toolbarVisible;
-  private boolean answerBtnClicked;
   private boolean cheated;
   //private boolean currentAnswer;
 
@@ -104,7 +103,6 @@ public class CheatPresenter extends GenericPresenter
     if(isViewRunning()) {
       getView().setAnswer(getModel().getCurrentAnswerLabel());
       //answerVisible = true;
-      answerBtnClicked = true;
       cheated= true;
     }
     checkAnswerVisibility();
@@ -159,14 +157,14 @@ public class CheatPresenter extends GenericPresenter
     settingInitialState();
     Log.d(TAG, "calling settingUpdatedState()");
 
-    if(answerBtnClicked){
+    if(cheated){
       getView().setAnswer(getModel().getCurrentAnswerLabel());
     }
   }
 
   private void checkAnswerVisibility(){
     if(isViewRunning()) {
-      if(!answerBtnClicked) {
+      if(!cheated) {
         getView().hideAnswer();
       } else {
         getView().showAnswer();

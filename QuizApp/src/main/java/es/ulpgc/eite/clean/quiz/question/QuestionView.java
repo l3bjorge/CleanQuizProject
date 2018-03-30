@@ -20,6 +20,7 @@ public class QuestionView
   private Toolbar toolbarScreen;
   private Button buttonTrue, buttonFalse, buttonCheat, buttonNext;
   private TextView labelQuestion, labelAnswer;
+  private boolean buttonTrueClickable, buttonNextClickable, buttonFalseClickable, buttonCheatClickable;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,9 @@ public class QuestionView
       @Override
       public void onClick(View view) {
         Log.d(TAG, "calling onTrueBtnClicked()");
-        getPresenter().onTrueBtnClicked();
+        if(buttonTrueClickable = true) {
+          getPresenter().onTrueBtnClicked();
+        }
       }
     });
     buttonFalse = (Button) findViewById(R.id.buttonFalse);
@@ -46,7 +49,9 @@ public class QuestionView
       @Override
       public void onClick(View view) {
         Log.d(TAG, "calling onFalseBtnClicked()");
-        getPresenter().onFalseBtnClicked();
+        if(buttonFalseClickable=true) {
+          getPresenter().onFalseBtnClicked();
+        }
       }
     });
     buttonCheat = (Button) findViewById(R.id.buttonCheat);
@@ -54,7 +59,9 @@ public class QuestionView
       @Override
       public void onClick(View view) {
         Log.d(TAG, "calling onCheatBtnClicked()");
-        getPresenter().onCheatBtnClicked();
+        if(buttonCheatClickable=true) {
+          getPresenter().onCheatBtnClicked();
+        }
       }
     });
     buttonNext = (Button) findViewById(R.id.buttonNext);
@@ -62,7 +69,9 @@ public class QuestionView
       @Override
       public void onClick(View view) {
         Log.d(TAG, "calling onNextBtnClicked()");
-        getPresenter().onNextBtnClicked();
+        if (buttonNextClickable) {
+          getPresenter().onNextBtnClicked();
+        }
       }
     });
   }
@@ -138,39 +147,39 @@ public class QuestionView
   public void setCheatButtonClickability(boolean answerBtnClicked) {
     if(answerBtnClicked){
       buttonCheat.setBackgroundColor(Color.RED);
-      buttonCheat.setClickable(false);
+      buttonCheatClickable = false;
     } else
       buttonCheat.setBackgroundColor(Color.GREEN);
-      buttonCheat.setClickable(true);
+      buttonCheatClickable = true;
   }
 
   @Override
   public void setFalseButtonClickability(boolean answerBtnClicked) {
     if(answerBtnClicked){
       buttonFalse.setBackgroundColor(Color.RED);
-      //buttonFalse.setClickable(false);
+      buttonFalseClickable = false;
     }else
       buttonFalse.setBackgroundColor(Color.GREEN);
-      //buttonFalse.setClickable(true);
+      buttonFalseClickable = true;
   }
 
   @Override
   public void setNextButtonClickability(boolean answerBtnClicked) {
     if(answerBtnClicked){
       buttonNext.setBackgroundColor(Color.GREEN);
-      //buttonNext.setClickable(true);
+      buttonNextClickable = true;
     }else
       buttonNext.setBackgroundColor(Color.RED);
-      //buttonNext.setClickable(false);
+      buttonNextClickable = true;
   }
   @Override
   public void setTrueButtonClickability(boolean answerBtnClicked) {
     if(answerBtnClicked){
       buttonTrue.setBackgroundColor(Color.RED);
-      //buttonTrue.setClickable(false);
+      buttonTrueClickable = false;
     }else
       buttonTrue.setBackgroundColor(Color.GREEN);
-      //buttonTrue.setClickable(true);
+      buttonTrueClickable = true;
   }
 
 
