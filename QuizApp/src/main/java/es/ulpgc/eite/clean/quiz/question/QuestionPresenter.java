@@ -178,6 +178,7 @@ public class QuestionPresenter extends GenericPresenter
 
   private void loadNextQuestion(){
     Log.d(TAG, "calling loadNextQuestion()");
+    cheated = false;
     getModel().setNextQuestion();
     settingInitialState();
   }
