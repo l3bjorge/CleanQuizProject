@@ -71,6 +71,12 @@ public class CheatView
 
 
   @Override
+  public void finishScreen() {
+    Log.d(TAG, "calling finishScreen()");
+    finish();
+  }
+
+  @Override
   public void hideToolbar() {
     toolbarScreen.setVisibility(View.GONE);
   }

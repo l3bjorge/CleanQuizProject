@@ -50,6 +50,19 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void backToQuestionScreen(Cheat.CheatToQuestion presenter){
+    Log.d(TAG, "calling savingUpdatedState()");
+    cheatToQuestionState = new QuestionState();
+    cheatToQuestionState.toolbarVisible = presenter.getToolbarVisibility();
+    cheatToQuestionState.cheated = presenter.getCheated();
+
+
+    Context view = presenter.getManagedContext();
+    if (view != null) {
+      //Log.d(TAG, "calling startingHelloScreen()");
+      //view.startActivity(new Intent(view, HelloView.class));
+      Log.d(TAG, "calling finishingCurrentScreen()");
+      presenter.destroyView();
+    }
 
   }
 
@@ -76,6 +89,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       Log.d(TAG, "calling resumingQuestionScreen()");
       Log.d(TAG, "calling settingUpdatedQuestionState()");
       presenter.setAnswerBtnClicked(cheatToQuestionState.answerBtnClicked);
+      presenter.setCheated(cheatToQuestionState.cheated);
 
       Log.d(TAG, "calling removingUpdatedQuestionState()");
       cheatToQuestionState = null;
@@ -119,6 +133,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
   private class QuestionState {
     boolean toolbarVisible;
     boolean answerBtnClicked;
+    boolean cheated;
   }
 
   private class CheatState {

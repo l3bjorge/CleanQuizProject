@@ -20,6 +20,7 @@ public interface Question {
   interface CheatToQuestion {
     void onScreenResumed();
     void setAnswerBtnClicked(boolean clicked);
+    void setCheated(boolean cheated);
   }
 
   interface QuestionToCheat {

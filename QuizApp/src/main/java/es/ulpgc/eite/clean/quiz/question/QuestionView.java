@@ -138,31 +138,39 @@ public class QuestionView
   public void setCheatButtonClickability(boolean answerBtnClicked) {
     if(answerBtnClicked){
       buttonCheat.setBackgroundColor(Color.RED);
+      buttonCheat.setClickable(false);
     } else
       buttonCheat.setBackgroundColor(Color.GREEN);
+      buttonCheat.setClickable(true);
   }
 
   @Override
   public void setFalseButtonClickability(boolean answerBtnClicked) {
     if(answerBtnClicked){
       buttonFalse.setBackgroundColor(Color.RED);
+      //buttonFalse.setClickable(false);
     }else
       buttonFalse.setBackgroundColor(Color.GREEN);
+      //buttonFalse.setClickable(true);
   }
 
   @Override
   public void setNextButtonClickability(boolean answerBtnClicked) {
     if(answerBtnClicked){
       buttonNext.setBackgroundColor(Color.GREEN);
+      //buttonNext.setClickable(true);
     }else
       buttonNext.setBackgroundColor(Color.RED);
+      //buttonNext.setClickable(false);
   }
   @Override
   public void setTrueButtonClickability(boolean answerBtnClicked) {
     if(answerBtnClicked){
       buttonTrue.setBackgroundColor(Color.RED);
+      //buttonTrue.setClickable(false);
     }else
       buttonTrue.setBackgroundColor(Color.GREEN);
+      //buttonTrue.setClickable(true);
   }
 
 

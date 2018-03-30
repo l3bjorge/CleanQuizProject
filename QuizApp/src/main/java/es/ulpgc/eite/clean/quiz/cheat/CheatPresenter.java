@@ -1,6 +1,7 @@
 package es.ulpgc.eite.clean.quiz.cheat;
 
 
+import android.content.Context;
 import android.util.Log;
 
 import es.ulpgc.eite.clean.mvp.ContextView;
@@ -16,7 +17,7 @@ public class CheatPresenter extends GenericPresenter
 
   private boolean toolbarVisible;
   private boolean answerBtnClicked;
-  //private boolean answerVisible;
+  private boolean cheated;
   //private boolean currentAnswer;
 
   /**
@@ -104,6 +105,7 @@ public class CheatPresenter extends GenericPresenter
       getView().setAnswer(getModel().getCurrentAnswerLabel());
       //answerVisible = true;
       answerBtnClicked = true;
+      cheated= true;
     }
     checkAnswerVisibility();
   }
@@ -194,4 +196,26 @@ public class CheatPresenter extends GenericPresenter
       getView().setConfirm(getModel().getConfirmLabel());
     }
   }
+
+  @Override
+  public Context getManagedContext() {
+    return getActivityContext();
+  }
+
+  @Override
+  public boolean getToolbarVisibility() {
+    return toolbarVisible;
+  }
+
+  @Override
+  public boolean getCheated() {
+    return cheated;
+  }
+
+    @Override
+    public void destroyView() {
+      if (isViewRunning()) {
+        getView().finishScreen();
+      }
+    }
 }

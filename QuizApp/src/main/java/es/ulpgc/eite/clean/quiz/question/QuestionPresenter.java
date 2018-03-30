@@ -18,6 +18,7 @@ public class QuestionPresenter extends GenericPresenter
   private boolean toolbarVisible;
   private boolean answerBtnClicked;
   private boolean answerVisible;
+  private boolean cheated;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -130,6 +131,12 @@ public class QuestionPresenter extends GenericPresenter
   }
 
   @Override
+  public void setCheated(boolean cheated) {
+    this.cheated = cheated;
+  }
+
+
+  @Override
   public void setToolbarVisibility(boolean visibility) {
     toolbarVisible = visibility;
   }
@@ -176,9 +183,12 @@ public class QuestionPresenter extends GenericPresenter
 
   private void settingInitialState(){
     Log.d(TAG, "calling settingInitialState()");
+    if(cheated){
+      answerBtnClicked = true;
+    }
     setButtonLabels();
-    setButtonColors();
     checkVisibility();
+    setButtonColors();
     getView().setQuestion(getModel().getCurrentQuestionLabel());
   }
 
